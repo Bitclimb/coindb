@@ -1,4 +1,4 @@
-# coindb
+# coindb (under development)
 
 A simple crypto-coin data storage.
 
