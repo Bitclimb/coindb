@@ -1,0 +1,41 @@
+{
+  "name": "coindb",
+  "version": "1.0.0",
+  "description": "A lightweight coin wallet database middleware on LMDB the can store millions of addresses each coin",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --forceExit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bitclimb/coindb.git"
+  },
+  "keywords": [
+    "lmdb",
+    "bitcoin",
+    "wallet",
+    "address",
+    "database",
+    "storage"
+  ],
+  "author": "unibtc@gmail.com",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Bitclimb/coindb/issues"
+  },
+  "homepage": "https://github.com/Bitclimb/coindb#readme",
+  "dependencies": {
+    "bloom-filter": "^0.2.0",
+    "bluebird": "^3.5.1",
+    "bson": "^1.0.4",
+    "date-time": "^2.1.0",
+    "fs-extra": "^5.0.0",
+    "lodash": "^4.17.4",
+    "mongodb": "^3.0.1",
+    "node-lmdb": "^0.4.13",
+    "snappyjs": "^0.6.0"
+  },
+  "devDependencies": {
+    "jest": "^22.0.4"
+  }
+}
