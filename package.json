@@ -1,6 +1,6 @@
 {
   "name": "coindb",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A lightweight coin wallet database middleware on mongodb the can store millions of addresses each coin",
   "main": "index.js",
   "scripts": {
@@ -27,6 +27,7 @@
   "dependencies": {
     "date-time": "^2.1.0",
     "lodash": "^4.17.4",
+    "mkdirp": "^0.5.1",
     "mongodb": "^3.0.1"
   },
   "devDependencies": {
