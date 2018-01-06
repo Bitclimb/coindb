@@ -147,7 +147,39 @@ test('updateBalance', async () => {
     expect(data).toEqual({ id: 'btctest', name: 'bitcointest', confirmed_balance: 10, unconfirmed_balance: 0, bip44: 0 });
   });
 });
+test('importAddresses', async () => {
+  const coindb = await getInstance(wallet);
+  const w = [];
+  const v = [];
+  let x = 75;
+  while (x--) {
+    if (x <= 50) {
+      w.push({
+        walletId: 'btctest',
+        address: `1UniBRgb1QYyvMmm6VMFyutZfPoZgPUXL${x}`,
+        accountId: 2,
+        index: x
+      });
+    }
+    v.push({
+      walletId: 'btctest',
+      address: `1UniBRgb1QYyvMmm6VMFyutZfPoZgPUXL${x}`,
+      accountId: 2,
+      index: x
+    });
+  }
+  await coindb.importAddresses(w);
+  return coindb.importAddresses(v).then(data => {
+    expect(data).toEqual({ imported: 24, dupes: 51 });
+  });
+});
+test('countAddress', async () => {
+  const coindb = await getInstance(wallet);
 
+  return coindb.countAddress().then(data => {
+    expect(data).toBe(77);
+  });
+});
 test('deleteWallet1', async () => {
   const coindb = await getInstance(wallet);
 

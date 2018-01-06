@@ -1,6 +1,6 @@
 {
   "name": "coindb",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A lightweight coin wallet database middleware on mongodb the can store millions of addresses each coin",
   "main": "index.js",
   "scripts": {

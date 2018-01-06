@@ -48,10 +48,12 @@ TODO: Add more description for each endpoint
 ##### getWallet
 ##### deleteWallet | deleteWallet(true)
 ##### importAddress(address,accountid,index)
+##### importAddresses(addresses `Array`)
 ##### removeAddress(address)
 ##### getAddress(address)
 ##### getAddresses
 ##### getAddressBy(query `Object`)
+##### countAddress
 ##### updateBalance(amount) | updateBalance(amount,`Boolean`) - default: true(confirmed), false(unconfirmed)
 ##### addressExist([address1,address2,...]) 
 ##### addTx(tx `Object`)
