@@ -6,6 +6,7 @@ const wallet2 = { id: 'bursttest', name: 'bursttest', confirmed_balance: 0, unco
 async function getInstance(w) {
   return await CoinDb(w);
 }
+
 test('getWallet', async () => {
   expect.assertions(1);
   const coindb = await getInstance(wallet);
@@ -181,6 +182,14 @@ test('countAddress', async () => {
   });
 });
 
+test('getBlock1', async () => {
+  const coindb = await getInstance(wallet);
+
+  return coindb.getBlock().then(data => {
+    expect(data).toEqual(null);
+  });
+});
+
 test('insertBlock', async () => {
   const coindb = await getInstance(wallet);
 
@@ -209,6 +218,7 @@ test('getBlock2', async () => {
     expect(data).toEqual({ blockId: 101, walletId: 'btctest' });
   });
 });
+
 test('deleteWallet1', async () => {
   const coindb = await getInstance(wallet);
 
@@ -216,7 +226,7 @@ test('deleteWallet1', async () => {
     expect(data).toBeTruthy;
   });
 });
-test('deleteWallet1', async () => {
+test('deleteWallet2', async () => {
   const coindb = await getInstance(wallet2);
 
   return coindb.deleteWallet(true).then(data => {
