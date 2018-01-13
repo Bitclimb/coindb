@@ -56,13 +56,13 @@ test('getAddresses', async () => {
   return coindb.getAddresses().then(data => {
     expect(data).toEqual([{
       walletId: 'btctest',
-      address: '1UniBRgb1QYyvMmm6VMFyutZfPoZgPUXL',
-      accountId: 2,
+      address: '1UniBRgb1QYyvMmm6VMFyutZfPoZgPUXX',
+      accountId: 1,
       index: 4
     }, {
       walletId: 'btctest',
-      address: '1UniBRgb1QYyvMmm6VMFyutZfPoZgPUXX',
-      accountId: 1,
+      address: '1UniBRgb1QYyvMmm6VMFyutZfPoZgPUXL',
+      accountId: 2,
       index: 4
     }]);
   });
@@ -117,13 +117,13 @@ test('newgetAddresses', async () => {
   return coindb.getAddresses().then(data => {
     expect(data).toEqual([{
       walletId: 'bursttest',
-      address: 'BURST-1UniBRgb1QYyvMmm6VMFyutZfPoZgPUXL',
-      accountId: 2,
+      address: 'BURST-1UniBRgb1QYyvMmm6VMFyutZfPoZgPUXX',
+      accountId: 1,
       index: 4
     }, {
       walletId: 'bursttest',
-      address: 'BURST-1UniBRgb1QYyvMmm6VMFyutZfPoZgPUXX',
-      accountId: 1,
+      address: 'BURST-1UniBRgb1QYyvMmm6VMFyutZfPoZgPUXL',
+      accountId: 2,
       index: 4
     }]);
   });
@@ -178,6 +178,35 @@ test('countAddress', async () => {
 
   return coindb.countAddress().then(data => {
     expect(data).toBe(77);
+  });
+});
+
+test('insertBlock', async () => {
+  const coindb = await getInstance(wallet);
+
+  return coindb.insertBlock(100).then(data => {
+    expect(data).toBeTruthy;
+  });
+});
+test('getBlock', async () => {
+  const coindb = await getInstance(wallet);
+
+  return coindb.getBlock().then(data => {
+    expect(data).toEqual({ blockId: 100, walletId: 'btctest' });
+  });
+});
+test('insertBlock2', async () => {
+  const coindb = await getInstance(wallet);
+
+  return coindb.insertBlock(101).then(data => {
+    expect(data).toBeTruthy;
+  });
+});
+test('getBlock2', async () => {
+  const coindb = await getInstance(wallet);
+
+  return coindb.getBlock().then(data => {
+    expect(data).toEqual({ blockId: 101, walletId: 'btctest' });
   });
 });
 test('deleteWallet1', async () => {
